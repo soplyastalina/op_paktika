@@ -310,6 +310,7 @@ class ImageProcessorApp(QWidget):
                                  f"Начальная точка должна быть внутри изображения, а ширина/высота положительными.")
 
             img_with_rect = self.image.copy()
+
             # Рисуем синий прямоугольник, толщина 2 пикселя
             cv2.rectangle(img_with_rect, (x, y), (x + w, y + h), (255, 0, 0), 2)
 
@@ -324,8 +325,8 @@ class ImageProcessorApp(QWidget):
 
     def reset_image(self):
         if self.original_image is not None:
-            self.display_image(self.original_image.copy())  # Отображаем копию оригинала
-            self.channel_combo.setCurrentIndex(0)  # Сброс выбора канала на "Все"
+            self.display_image(self.original_image.copy())
+            self.channel_combo.setCurrentIndex(0)
             QMessageBox.information(self, "Отклик", "Изображение сброшено до оригинала.")
         else:
             QMessageBox.warning(self, "Ошибка",
